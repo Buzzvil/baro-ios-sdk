@@ -43,17 +43,19 @@ done
 
 > Note: We provide SDK as an universal framework which is compatible with both device and simulator. This script strips out unnecessary architectures with your current build target. 
 
-3. Add the script below to a new `Run Script`
-```sh
-pushd ${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Frameworks/BuzzNative.framework/Frameworks
-for EACH in *.framework; do
-echo "-- signing ${EACH}"
-/usr/bin/codesign --force --deep --sign "${EXPANDED_CODE_SIGN_IDENTITY}" --preserve-metadata=identifier,entitlements --timestamp=none $EACH
-done
-popd
+3.  App Transport Security
+Add following properties to your `info.plist` to allow ads to be served via HTTP on iOS 9 or higher.
 ```
-
-> Note: This script is required to code sign nested frameworks inside SDK.
+<key>NSAppTransportSecurity</key>
+<dict>
+<key>NSAllowsArbitraryLoads</key>
+<true/>
+<key>NSAllowsArbitraryLoadsForMedia</key>
+<true/>
+<key>NSAllowsArbitraryLoadsInWebContent</key>
+<true/>
+</dict>
+```
 
 
 ## Usage
@@ -72,7 +74,7 @@ BuzzNative.configure(environment: "test", logging: true)
 1. Add a BNAdView to your view.
 2. Design your BNAdView in your Storyboard or Interface Builder. Or by code.
 
-#### Step 3A: Fetch and Render Ad with Block
+#### Step 3: Fetch and Render Ad
 
 ```swift
 let adLoader = BNAdLoader(unitId: "your_unit_id")
@@ -86,26 +88,6 @@ adLoader.loadAd(
     } else {
       // Handle error
     }
-}
-```
-
-#### Step 3B: Fetch and Render Ad with Delegate
-
-```swift
-let adLoader = BNAdLoader(unitId: "your_unit_id", delegate: self)
-adLoader.loadAd(
-  userProfile: BNUserProfile(birthday: birthday, gender: .male), // optional 
-  location: BNLocation(latitude: 37.53457, longitude: 128.23423) // optional
-)
-
-// BNAdLoaderDelegate
-func adLoader(_ adLoader: BNAdLoader, didReceiveAd ad: BNAd) {
-  adView.delegate = self // optional
-  adView.renderAd(ad)
-}
-
-func adLoader(_adLoader: BNAdLoader, didFailWithError error: Error?) {
-  // Handle error
 }
 ```
 
@@ -137,7 +119,7 @@ In AppDelegate's `application:didFinishLaunchingWithOptions`
 1. Add a BNAdView to your view.
 2. Design your BNAdView in your Storyboard or Interface Builder. Or by code.
 
-#### Step 3A: Fetch and Render Ad with Block
+#### Step 3: Fetch and Render Ad with Block
 
 ```objc
 BNAdLoader *adLoader = [[BNAdLoader alloc] initWithUnitId:@"your_unit_id" delegate:nil];
@@ -156,28 +138,6 @@ __weak YourClass *weakSelf = self;
     }
 }];
 ```
-
-#### Step 3B: Fetch and Render Ad with Delegate
-
-```objc
-BNAdLoader *adLoader = [[BNAdLoader alloc] initWithUnitId:@"your_unit_id" delegate:self];
-BNUserProfile *userProfile = [[BNUserProfile alloc] initWithBirthday:birthday gender:BNUserGenderMale];
-BNLocation *location = [[BNLocation alloc] initWithLatitude: 37.53457 longitude: 128.23423];
-
-[adLoader loadAdWithUserProfile:userProfile location:location completion:nil];
-
-
-// BNAdLoaderDelegate
-- (void)adLoader:(BNAdLoader *)adLoader didReceiveAd:(BNAd *)ad {
-    [self.adView renderAd:ad];
-}
-
-- (void)adLoader:(BNAdLoader *)adLoader didFailWithError:(NSError *)error {
-  // Handler error
-}
-
-```
-
 > Note: Use `[adView isPresentingAd]` to check BNAdView is currently presenting an ad or not
 
 #### Step 4: Handle ad events (optional)

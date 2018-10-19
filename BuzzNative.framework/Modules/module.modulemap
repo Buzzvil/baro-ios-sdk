@@ -1,0 +1,11 @@
+framework module BuzzNative {
+  umbrella header "BuzzNative.h"
+
+  export *
+  module * { export * }
+}
+
+module BuzzNative.Swift {
+    header "BuzzNative-Swift.h"
+    requires objc
+}
