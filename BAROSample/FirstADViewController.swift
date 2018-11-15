@@ -8,15 +8,15 @@
 
 import UIKit
 import BARO
-import ToastSwiftFramework
+import Toast_Swift
 
 class FirstADViewController: UIViewController {
   
-  @IBOutlet weak var adView: BNAdView!
+  @IBOutlet weak var adView: BRAdView!
   @IBOutlet weak var containerAdView: UIView!
   
   var date: Date?
-  var gender: BNUserGender = BNUserGender.unknown
+  var gender: BRUserGender = BRUserGender.unknown
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -29,8 +29,8 @@ class FirstADViewController: UIViewController {
     dateFormatter.dateFormat = "yyyy-MM-dd"
     if let date = self.date { birthday = date }
     
-    let adLoader = BNAdLoader(unitId: "298291760569861")
-    adLoader.loadAd(userProfile: BNUserProfile(birthday: birthday, gender: self.gender)) { [weak self] (ad, error) in
+    let adLoader = BRAdLoader(unitId: "158465089741792")
+    adLoader.loadAd(userProfile: BRUserProfile(birthday: birthday, gender: self.gender)) { [weak self] (ad, error) in
       if let ad = ad {
         self?.adView.delegate = self
         self?.adView.renderAd(ad)
@@ -52,12 +52,12 @@ class FirstADViewController: UIViewController {
   }
 }
 
-extension FirstADViewController: BNAdViewDelegate {
-  func adViewDidImpressed(adView: BNAdView) {
+extension FirstADViewController: BRAdViewDelegate {
+  func adViewDidImpressed(adView: BRAdView) {
     self.view.makeToast("Impressed!")
   }
   
-  func adViewDidClicked(adView: BNAdView) {
+  func adViewDidClicked(adView: BRAdView) {
     self.view.makeToast("Clicked!")
   }
 }
@@ -80,13 +80,13 @@ extension FirstADViewController: GenderSelectorDelegate {
   func genderSelector(_ dateSelector: GenderSelectorViewController, didSelectGender gender: String) {
     switch (gender) {
     case "Male":
-      self.gender = BNUserGender.male
+      self.gender = BRUserGender.male
       break
     case "Female":
-      self.gender = BNUserGender.female
+      self.gender = BRUserGender.female
       break
     default:
-      self.gender = BNUserGender.unknown
+      self.gender = BRUserGender.unknown
     }
     
     let toastStr: String = "Change Gender : " + gender

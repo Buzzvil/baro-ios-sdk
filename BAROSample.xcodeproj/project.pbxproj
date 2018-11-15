@@ -12,9 +12,6 @@
 		205996BF20F5EBE70017AE9E /* BuzzNativeSample.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 205996BD20F5EBE70017AE9E /* BuzzNativeSample.xcdatamodeld */; };
 		205996C120F5EBE90017AE9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 205996C020F5EBE90017AE9E /* Assets.xcassets */; };
 		205996C420F5EBE90017AE9E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 205996C220F5EBE90017AE9E /* LaunchScreen.storyboard */; };
-		C47C5ED82179988A0081C511 /* BuzzNative.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C47C5ED6217998810081C511 /* BuzzNative.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C47C5EDA217999C30081C511 /* ToastSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C47C5ED9217999C30081C511 /* ToastSwiftFramework.framework */; };
-		C47C5EDB21799A3A0081C511 /* ToastSwiftFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C47C5ED9217999C30081C511 /* ToastSwiftFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E2895B612122C9E10062B02B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2895B602122C9E10062B02B /* Images.xcassets */; };
 		E298C1BB21218B6700C3C450 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E298C1B421218B6600C3C450 /* CustomTableViewCell.swift */; };
 		E298C1BD21218B6700C3C450 /* SecondADViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E298C1B621218B6600C3C450 /* SecondADViewController.swift */; };
@@ -22,24 +19,12 @@
 		E298C1BF21218B6700C3C450 /* FirstADViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E298C1B821218B6700C3C450 /* FirstADViewController.swift */; };
 		E298C1C021218B6700C3C450 /* DateSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E298C1B921218B6700C3C450 /* DateSelectorViewController.swift */; };
 		E298C1C22122983200C3C450 /* backgroundImg.png in Resources */ = {isa = PBXBuildFile; fileRef = E298C1C12122983200C3C450 /* backgroundImg.png */; };
+		FB697887692B0FE40503ECD6 /* Pods_BAROSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AE245BA05822D384716598F /* Pods_BAROSample.framework */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		2000483721196F04008F34B7 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				C47C5EDB21799A3A0081C511 /* ToastSwiftFramework.framework in Embed Frameworks */,
-				C47C5ED82179988A0081C511 /* BuzzNative.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
+		07787ADBF40B832A2EC476C3 /* Pods-BAROSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BAROSample.release.xcconfig"; path = "Pods/Target Support Files/Pods-BAROSample/Pods-BAROSample.release.xcconfig"; sourceTree = "<group>"; };
+		1AE245BA05822D384716598F /* Pods_BAROSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BAROSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		205996B320F5EBE70017AE9E /* BAROSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BAROSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		205996B620F5EBE70017AE9E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		205996BB20F5EBE70017AE9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -47,8 +32,9 @@
 		205996C020F5EBE90017AE9E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		205996C320F5EBE90017AE9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		205996C520F5EBE90017AE9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		41DAFF8C603FA530F87EFEF8 /* Pods-BAROSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BAROSample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BAROSample/Pods-BAROSample.debug.xcconfig"; sourceTree = "<group>"; };
 		C47C5ED6217998810081C511 /* BuzzNative.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BuzzNative.framework; path = ../BuzzNative.framework; sourceTree = "<group>"; };
-		C47C5ED9217999C30081C511 /* ToastSwiftFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ToastSwiftFramework.framework; sourceTree = "<group>"; };
+		C4B69AF2219D549F004059E7 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		E2895B602122C9E10062B02B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E298C1B421218B6600C3C450 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		E298C1B621218B6600C3C450 /* SecondADViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondADViewController.swift; sourceTree = "<group>"; };
@@ -63,7 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C47C5EDA217999C30081C511 /* ToastSwiftFramework.framework in Frameworks */,
+				FB697887692B0FE40503ECD6 /* Pods_BAROSample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,9 +59,11 @@
 		205996AA20F5EBE70017AE9E = {
 			isa = PBXGroup;
 			children = (
+				C4B69AF2219D549F004059E7 /* Podfile */,
 				205996B520F5EBE70017AE9E /* BAROSample */,
 				205996B420F5EBE70017AE9E /* Products */,
 				2073A89820F60914007B97B2 /* Frameworks */,
+				32BFBC3F7440704E2B26BE50 /* Pods */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -112,10 +100,19 @@
 		2073A89820F60914007B97B2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C47C5ED9217999C30081C511 /* ToastSwiftFramework.framework */,
 				C47C5ED6217998810081C511 /* BuzzNative.framework */,
+				1AE245BA05822D384716598F /* Pods_BAROSample.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		32BFBC3F7440704E2B26BE50 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				41DAFF8C603FA530F87EFEF8 /* Pods-BAROSample.debug.xcconfig */,
+				07787ADBF40B832A2EC476C3 /* Pods-BAROSample.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,10 +122,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 205996C820F5EBE90017AE9E /* Build configuration list for PBXNativeTarget "BAROSample" */;
 			buildPhases = (
+				E5ED2D56E7F9B8460CFDAE5A /* [CP] Check Pods Manifest.lock */,
 				205996AF20F5EBE70017AE9E /* Sources */,
 				205996B020F5EBE70017AE9E /* Frameworks */,
 				205996B120F5EBE70017AE9E /* Resources */,
-				2000483721196F04008F34B7 /* Embed Frameworks */,
+				AE0A500CCD1CAD2356F04184 /* [CP] Embed Pods Frameworks */,
+				A255E51BD321EC03ABC015C1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -186,6 +185,76 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A255E51BD321EC03ABC015C1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BAROSample/Pods-BAROSample-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AE0A500CCD1CAD2356F04184 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-BAROSample/Pods-BAROSample-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${PODS_ROOT}/BARO/BARO.framework",
+				"${PODS_ROOT}/BARO/BAROAdmobMediation.framework",
+				"${PODS_ROOT}/BARO/BAROBaiduMediation.framework",
+				"${PODS_ROOT}/BARO/BAROMopubMediation.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
+				"${BUILT_PRODUCTS_DIR}/mopub-ios-sdk/MoPub.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BARO.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BAROAdmobMediation.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BAROBaiduMediation.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BAROMopubMediation.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MoPub.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BAROSample/Pods-BAROSample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E5ED2D56E7F9B8460CFDAE5A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BAROSample-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		205996AF20F5EBE70017AE9E /* Sources */ = {
@@ -340,21 +409,13 @@
 		};
 		205996C920F5EBE90017AE9E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 41DAFF8C603FA530F87EFEF8 /* Pods-BAROSample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 67369282ZY;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/..",
-					"$(PROJECT_DIR)",
-				);
 				INFOPLIST_FILE = BAROSample/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.buzzvil.BAROSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -364,21 +425,13 @@
 		};
 		205996CA20F5EBE90017AE9E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 07787ADBF40B832A2EC476C3 /* Pods-BAROSample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 67369282ZY;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/..",
-					"$(PROJECT_DIR)",
-				);
 				INFOPLIST_FILE = BAROSample/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.buzzvil.BAROSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

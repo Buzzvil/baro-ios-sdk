@@ -9,6 +9,9 @@
 import UIKit
 import CoreData
 import BARO
+import BAROAdmobMediation
+import BAROBaiduMediation
+import BAROMopubMediation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     
-    BARO.configure(environment: .test, logging: true)
+    BARO.configure(environment: .test, mediationAdapterClasses: [BRBaiduMediationAdapter.self, BRMopubMediationAdapter.self, BRAdmobMediationAdapter.self], logging: true)
     
     return true
   }

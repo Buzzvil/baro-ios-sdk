@@ -32,10 +32,10 @@ class SecondADViewController: UITableViewController {
       dateFormatter.dateFormat = "yyyy-MM-dd"
       let birthday = dateFormatter.date(from: "1988-02-28")
       
-      let adLoader = BNAdLoader(unitId: "298291760569861")
+      let adLoader = BRAdLoader(unitId: "298291760569861")
       adLoader.loadAd(
-        userProfile: BNUserProfile(birthday: birthday, gender: .male),
-        location: BNLocation(latitude: 37.53457, longitude: 128.23423) // optional
+        userProfile: BRUserProfile(birthday: birthday, gender: .male),
+        location: BRLocation(latitude: 37.53457, longitude: 128.23423) // optional
         ) { [weak self] (ad, error) in
         if let ad = ad {
           customCell.adView.delegate = self // optional
@@ -55,12 +55,12 @@ class SecondADViewController: UITableViewController {
   }
 }
 
-extension SecondADViewController: BNAdViewDelegate {
-  func adViewDidImpressed(adView: BNAdView) {
+extension SecondADViewController: BRAdViewDelegate {
+  func adViewDidImpressed(adView: BRAdView) {
     self.parent?.view.makeToast("Impressed!")
   }
   
-  func adViewDidClicked(adView: BNAdView) {
+  func adViewDidClicked(adView: BRAdView) {
     self.parent?.view.makeToast("Clicked!")
   }
 }
