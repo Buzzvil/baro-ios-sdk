@@ -12,6 +12,7 @@
 		205996BF20F5EBE70017AE9E /* BuzzNativeSample.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 205996BD20F5EBE70017AE9E /* BuzzNativeSample.xcdatamodeld */; };
 		205996C120F5EBE90017AE9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 205996C020F5EBE90017AE9E /* Assets.xcassets */; };
 		205996C420F5EBE90017AE9E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 205996C220F5EBE90017AE9E /* LaunchScreen.storyboard */; };
+		C4C674B221B1277500C928D4 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C674B121B1277500C928D4 /* Toast.swift */; };
 		E2895B612122C9E10062B02B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2895B602122C9E10062B02B /* Images.xcassets */; };
 		E298C1BB21218B6700C3C450 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E298C1B421218B6600C3C450 /* CustomTableViewCell.swift */; };
 		E298C1BD21218B6700C3C450 /* SecondADViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E298C1B621218B6600C3C450 /* SecondADViewController.swift */; };
@@ -35,6 +36,8 @@
 		41DAFF8C603FA530F87EFEF8 /* Pods-BAROSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BAROSample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BAROSample/Pods-BAROSample.debug.xcconfig"; sourceTree = "<group>"; };
 		C47C5ED6217998810081C511 /* BuzzNative.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BuzzNative.framework; path = ../BuzzNative.framework; sourceTree = "<group>"; };
 		C4B69AF2219D549F004059E7 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		C4C674B021B1251700C928D4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C4C674B121B1277500C928D4 /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		E2895B602122C9E10062B02B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E298C1B421218B6600C3C450 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		E298C1B621218B6600C3C450 /* SecondADViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondADViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +62,7 @@
 		205996AA20F5EBE70017AE9E = {
 			isa = PBXGroup;
 			children = (
+				C4C674B021B1251700C928D4 /* README.md */,
 				C4B69AF2219D549F004059E7 /* Podfile */,
 				205996B520F5EBE70017AE9E /* BAROSample */,
 				205996B420F5EBE70017AE9E /* Products */,
@@ -81,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				E298C1C12122983200C3C450 /* backgroundImg.png */,
+				C4C674B121B1277500C928D4 /* Toast.swift */,
 				E298C1B421218B6600C3C450 /* CustomTableViewCell.swift */,
 				E298C1B921218B6700C3C450 /* DateSelectorViewController.swift */,
 				E298C1B821218B6700C3C450 /* FirstADViewController.swift */,
@@ -127,7 +132,6 @@
 				205996B020F5EBE70017AE9E /* Frameworks */,
 				205996B120F5EBE70017AE9E /* Resources */,
 				AE0A500CCD1CAD2356F04184 /* [CP] Embed Pods Frameworks */,
-				A255E51BD321EC03ABC015C1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -187,21 +191,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		A255E51BD321EC03ABC015C1 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BAROSample/Pods-BAROSample-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		AE0A500CCD1CAD2356F04184 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -209,25 +198,23 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-BAROSample/Pods-BAROSample-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${PODS_ROOT}/BARO/BARO.framework",
 				"${PODS_ROOT}/BARO/BAROAdmobMediation.framework",
 				"${PODS_ROOT}/BARO/BAROBaiduMediation.framework",
 				"${PODS_ROOT}/BARO/BAROMopubMediation.framework",
-				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/mopub-ios-sdk/MoPub.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BARO.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BAROAdmobMediation.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BAROBaiduMediation.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BAROMopubMediation.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MoPub.framework",
 			);
@@ -262,6 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				205996BF20F5EBE70017AE9E /* BuzzNativeSample.xcdatamodeld in Sources */,
+				C4C674B221B1277500C928D4 /* Toast.swift in Sources */,
 				E298C1C021218B6700C3C450 /* DateSelectorViewController.swift in Sources */,
 				E298C1BF21218B6700C3C450 /* FirstADViewController.swift in Sources */,
 				E298C1BB21218B6700C3C450 /* CustomTableViewCell.swift in Sources */,

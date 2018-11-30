@@ -1,57 +1,74 @@
 PODS:
-  - Alamofire (4.7.3)
-  - BARO (1.2.0):
-    - Alamofire (~> 4.7)
-    - BARO/Core (= 1.2.0)
-    - Kingfisher (~> 4.9.0)
-    - SwiftyJSON (~> 4.1.0)
-  - BARO/AdmobMediation (1.2.0):
-    - Alamofire (~> 4.7)
-    - Kingfisher (~> 4.9.0)
-    - SwiftyJSON (~> 4.1.0)
-  - BARO/BaiduMediation (1.2.0):
-    - Alamofire (~> 4.7)
-    - Kingfisher (~> 4.9.0)
-    - SwiftyJSON (~> 4.1.0)
-  - BARO/Core (1.2.0):
-    - Alamofire (~> 4.7)
-    - Kingfisher (~> 4.9.0)
-    - SwiftyJSON (~> 4.1.0)
-  - BARO/MopubMediation (1.2.0):
-    - Alamofire (~> 4.7)
-    - Kingfisher (~> 4.9.0)
+  - AFNetworking (3.2.1):
+    - AFNetworking/NSURLSession (= 3.2.1)
+    - AFNetworking/Reachability (= 3.2.1)
+    - AFNetworking/Security (= 3.2.1)
+    - AFNetworking/Serialization (= 3.2.1)
+    - AFNetworking/UIKit (= 3.2.1)
+  - AFNetworking/NSURLSession (3.2.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.2.1)
+  - AFNetworking/Security (3.2.1)
+  - AFNetworking/Serialization (3.2.1)
+  - AFNetworking/UIKit (3.2.1):
+    - AFNetworking/NSURLSession
+  - BARO (2.2.0):
+    - AFNetworking (~> 3.0)
+    - BARO/Core (= 2.2.0)
+    - SDWebImage (~> 4.0)
+  - BARO/AdmobMediation (2.2.0):
+    - AFNetworking (~> 3.0)
+    - SDWebImage (~> 4.0)
+  - BARO/BaiduMediation (2.2.0):
+    - AFNetworking (~> 3.0)
+    - SDWebImage (~> 4.0)
+  - BARO/Core (2.2.0):
+    - AFNetworking (~> 3.0)
+    - SDWebImage (~> 4.0)
+  - BARO/MopubMediation (2.2.0):
+    - AFNetworking (~> 3.0)
     - mopub-ios-sdk (~> 5.0)
-    - SwiftyJSON (~> 4.1.0)
-  - Kingfisher (4.9.0)
-  - mopub-ios-sdk (5.4.0):
-    - mopub-ios-sdk/MoPubSDK (= 5.4.0)
-  - mopub-ios-sdk/Avid (5.4.0):
+    - SDWebImage (~> 4.0)
+  - mopub-ios-sdk (5.4.1):
+    - mopub-ios-sdk/MoPubSDK (= 5.4.1)
+  - mopub-ios-sdk/Avid (5.4.1):
     - mopub-ios-sdk/Core
-  - mopub-ios-sdk/Core (5.4.0)
-  - mopub-ios-sdk/Moat (5.4.0):
+  - mopub-ios-sdk/Core (5.4.1)
+  - mopub-ios-sdk/Moat (5.4.1):
     - mopub-ios-sdk/Core
-  - mopub-ios-sdk/MoPubSDK (5.4.0):
+  - mopub-ios-sdk/MoPubSDK (5.4.1):
     - mopub-ios-sdk/Avid
     - mopub-ios-sdk/Core
     - mopub-ios-sdk/Moat
-  - SwiftyJSON (4.1.0)
+  - SDWebImage (4.4.2):
+    - SDWebImage/Core (= 4.4.2)
+  - SDWebImage/Core (4.4.2)
   - Toast-Swift (3.0.1)
 
 DEPENDENCIES:
-  - BARO (~> 1.0)
+  - BARO (~> 2.2.0)
   - BARO/AdmobMediation
   - BARO/BaiduMediation
   - BARO/MopubMediation
   - Toast-Swift (~> 3.0.0)
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AFNetworking
+    - BARO
+    - mopub-ios-sdk
+    - SDWebImage
+    - Toast-Swift
+
 SPEC CHECKSUMS:
-  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
-  BARO: e3498023984f4b31350b3490fa867adefd48871c
-  Kingfisher: 64539b51826b778206daa6ed815d12653caa69dd
-  mopub-ios-sdk: 6e331c6cf6052426a750568578f55dd3de0a67f1
-  SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
+  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  BARO: bd330d90ca6691a59a2c9a8d626aebf4f4f69f94
+  mopub-ios-sdk: 320de49dd0a352ac58d33104a23853e749a84a78
+  SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
   Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
 
-PODFILE CHECKSUM: 778903a2c20fe63fd3815c11561a9fcad3c8cd58
+PODFILE CHECKSUM: 50a498913931ade0f1ab6dac095a7c4808ea7c63
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.3

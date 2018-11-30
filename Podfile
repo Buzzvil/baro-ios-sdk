@@ -6,7 +6,7 @@ target 'BAROSample' do
   use_frameworks!
 
   # Pods for BAROSample
-  pod 'BARO', '~> 1.0'
+  pod 'BARO', '~> 2.2.0'
   pod 'BARO/AdmobMediation'
   pod 'BARO/MopubMediation'
   pod 'BARO/BaiduMediation'

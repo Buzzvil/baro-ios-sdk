@@ -10,5 +10,5 @@ import UIKit
 import BARO
 
 class CustomTableViewCell: UITableViewCell  {
-  @IBOutlet weak var adView: BRAdView!
+  @IBOutlet weak var adView: BAROAdView!
 }

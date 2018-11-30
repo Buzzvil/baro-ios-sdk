@@ -8,38 +8,40 @@
 
 import UIKit
 import BARO
-import Toast_Swift
 
 class FirstADViewController: UIViewController {
-  
-  @IBOutlet weak var adView: BRAdView!
+
+  @IBOutlet weak var adView: BAROAdView!
   @IBOutlet weak var containerAdView: UIView!
-  
+
   var date: Date?
-  var gender: BRUserGender = BRUserGender.unknown
-  
+  var gender: BAROUserGender = BAROUserGenderUnknown
+
+  var adLoader: BAROAdLoader!
+
   override func viewDidLoad() {
     super.viewDidLoad()
+
+    adLoader = BAROAdLoader(unitId: "158465089741792", preloadEnabled: false)
   }
-  
+
   @IBAction func fetchAds(_ sender: Any) {
     var birthday: Date?
-    
+
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "yyyy-MM-dd"
     if let date = self.date { birthday = date }
-    
-    let adLoader = BRAdLoader(unitId: "158465089741792")
-    adLoader.loadAd(userProfile: BRUserProfile(birthday: birthday, gender: self.gender)) { [weak self] (ad, error) in
+
+    adLoader.loadAd(with: BAROUserProfile(birthday: birthday, gender: self.gender), location: nil) { [weak self] (ad, error) in
       if let ad = ad {
         self?.adView.delegate = self
         self?.adView.renderAd(ad)
       } else {
-        //Handle error
+        //        Handle error
       }
     }
   }
-  
+
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "selectDate" {
       let viewController: DateSelectorViewController = segue.destination as! DateSelectorViewController
@@ -52,12 +54,12 @@ class FirstADViewController: UIViewController {
   }
 }
 
-extension FirstADViewController: BRAdViewDelegate {
-  func adViewDidImpressed(adView: BRAdView) {
+extension FirstADViewController: BAROAdViewDelegate {
+  func baroAdViewDidImpressed(_ adView: BAROAdView) {
     self.view.makeToast("Impressed!")
   }
-  
-  func adViewDidClicked(adView: BRAdView) {
+
+  func baroAdViewDidClicked(_ adView: BAROAdView) {
     self.view.makeToast("Clicked!")
   }
 }
@@ -65,12 +67,12 @@ extension FirstADViewController: BRAdViewDelegate {
 extension FirstADViewController: DateSelectorDelegate {
   func dateSelector(_ dateSelector: DateSelectorViewController, didSelectDate date: Date) {
     self.date = date
-    
+
     if let date = self.date {
       let dateFormatter = DateFormatter()
       dateFormatter.dateFormat = "yyyy-MM-dd"
       let toastStr: String = "Change Date : " + dateFormatter.string(from: date)
-      
+
       self.view.makeToast(toastStr)
     }
   }
@@ -80,15 +82,15 @@ extension FirstADViewController: GenderSelectorDelegate {
   func genderSelector(_ dateSelector: GenderSelectorViewController, didSelectGender gender: String) {
     switch (gender) {
     case "Male":
-      self.gender = BRUserGender.male
+      self.gender = BAROUserGenderMale
       break
     case "Female":
-      self.gender = BRUserGender.female
+      self.gender = BAROUserGenderFemale
       break
     default:
-      self.gender = BRUserGender.unknown
+      self.gender = BAROUserGenderUnknown
     }
-    
+
     let toastStr: String = "Change Gender : " + gender
     self.view.makeToast(toastStr)
   }

@@ -1,59 +1,28 @@
-# BuzzNative-SDK-iOS Integration Guide
+# BARO-iOS-SDK Integration Guide
 
 1. [Requirements](#requirements)
 2. [Integration](#integration)
 3. [Usage](#usage)
     1. [Swift](#swift)
     2. [Objective-C](#objective-c)
+4. [Mediation](#mediation)
 
 ## Requirements
 - iOS 8 or higher
 - Both Swift and Objective-C are supported
 
 ## Integration
-
-In your `Build Phase` setting,
-1. Add `BuzzNative.framework` to `Embed Frameworks`.
-2. Add the script below to a new `Run Script`.
-```sh
-APP_PATH="${TARGET_BUILD_DIR}/${WRAPPER_NAME}"
-
-find "$APP_PATH" -name '*.framework' -type d | while read -r FRAMEWORK; do
-FRAMEWORK_EXECUTABLE_NAME=$(defaults read "$FRAMEWORK/Info.plist" CFBundleExecutable)
-FRAMEWORK_EXECUTABLE_PATH="$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME"
-
-EXTRACTED_ARCHS=()
-
-for ARCH in $ARCHS; do
-echo "Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME"
-lipo -extract "$ARCH" "$FRAMEWORK_EXECUTABLE_PATH" -o "$FRAMEWORK_EXECUTABLE_PATH-$ARCH"
-EXTRACTED_ARCHS+=("$FRAMEWORK_EXECUTABLE_PATH-$ARCH")
-done
-
-echo "Merging extracted architectures: ${ARCHS}"
-lipo -o "$FRAMEWORK_EXECUTABLE_PATH-merged" -create "${EXTRACTED_ARCHS[@]}"
-rm "${EXTRACTED_ARCHS[@]}"
-
-echo "Replacing original executable with thinned version"
-rm "$FRAMEWORK_EXECUTABLE_PATH"
-mv "$FRAMEWORK_EXECUTABLE_PATH-merged" "$FRAMEWORK_EXECUTABLE_PATH"
-
-done
+1. Add this line to your Podfile.
+```
+pod 'BARO', '~> 2.2.0'
 ```
 
-> Note: We provide SDK as an universal framework which is compatible with both device and simulator. This script strips out unnecessary architectures with your current build target. 
-
-3.  App Transport Security
-Add following properties to your `info.plist` to allow ads to be served via HTTP on iOS 9 or higher.
+2. Add following properties to your `info.plist` to allow ads to be served via HTTP on iOS 9 or higher.
 ```
 <key>NSAppTransportSecurity</key>
 <dict>
-<key>NSAllowsArbitraryLoads</key>
-<true/>
-<key>NSAllowsArbitraryLoadsForMedia</key>
-<true/>
-<key>NSAllowsArbitraryLoadsInWebContent</key>
-<true/>
+  <key>NSAllowsArbitraryLoads</key>
+  <true/>
 </dict>
 ```
 
@@ -62,25 +31,27 @@ Add following properties to your `info.plist` to allow ads to be served via HTTP
 
 ### Swift
 
-#### Step 1: Initialize BuzzNative
+#### Step 1: Initialize BARO
 
 In AppDelegate's `application:didFinishLaunchingWithOptions`
 ```swift
-BuzzNative.configure(environment: "test", logging: true)
+import BARO
+
+BARO.configure(BAROEnvProduction, mediationAdapterClasses: [], logging: true)
 ```
 
-#### Step 2: Prepare BNAdView
+#### Step 2: Prepare BAROAdView
 
-1. Add a BNAdView to your view.
-2. Design your BNAdView in your Storyboard or Interface Builder. Or by code.
+1. Add a BAROAdView to your view.
+2. Design your BAROAdView in your Storyboard or Interface Builder. Or by code.
 
 #### Step 3: Fetch and Render Ad
 
 ```swift
-let adLoader = BNAdLoader(unitId: "your_unit_id")
+let adLoader = BAROAdLoader(unitId: "your_unit_id", preloadEnabled: false)
 adLoader.loadAd(
-  userProfile: BNUserProfile(birthday: birthday, gender: .male), // optional 
-  location: BNLocation(latitude: 37.53457, longitude: 128.23423) // optional
+  with: BAROUserProfile(birthday: birthday, gender: .male), // optional 
+  location: BAROLocation(latitude: 37.53457, longitude: 128.23423) // optional
   ) { [weak self] (ad, error) in
     if let ad = ad {
       self?.adView.delegate = self // optional
@@ -91,46 +62,49 @@ adLoader.loadAd(
 }
 ```
 
-> Note: Use `adView.isPresentingAd()` to check BNAdView is currently presenting an ad or not
+> Note: Use `adView.isPresentingAd()` to check BAROAdView is currently presenting an ad or not
 
 #### Step 4: Handle ad events (optional)
 
 ```swift
-func adViewDidImpressed(adView: BNAdView) {
+// BAROAdViewDelegate
+func adViewDidImpressed(adView: BAROAdView) {
   // Impressed!
 }
 
-func adViewDidClicked(adView: BNAdView) {
+func adViewDidClicked(adView: BAROAdView) {
   // Clicked!
 }
 ```
 &nbsp;
 ### Objective-C
 
-#### Step 1: Initialize BuzzNative
+#### Step 1: Initialize BARO
 
 In AppDelegate's `application:didFinishLaunchingWithOptions`
 
 ```objc
-[BuzzNative configureWithEnvironment:BNEnvTest logging:YES];
+#import <BARO/BARO.h>
+
+[BARO configure:BAROEnvProduction mediationAdapterClasses:@[] logging:YES];
 ```
-#### Step 2: Prepare BNAdView
+#### Step 2: Prepare BAROAdView
 
-1. Add a BNAdView to your view.
-2. Design your BNAdView in your Storyboard or Interface Builder. Or by code.
+1. Add a BAROAdView to your view.
+2. Design your BAROAdView in your Storyboard or Interface Builder. Or by code.
 
-#### Step 3: Fetch and Render Ad with Block
+#### Step 3: Fetch and Render Ad
 
 ```objc
-BNAdLoader *adLoader = [[BNAdLoader alloc] initWithUnitId:@"your_unit_id" delegate:nil];
-BNUserProfile *userProfile = [[BNUserProfile alloc] initWithBirthday:birthday gender:BNUserGenderMale];
-BNLocation *location = [[BNLocation alloc] initWithLatitude: 37.53457 longitude: 128.23423];
+BAROAdLoader *adLoader = [[BAROAdLoader alloc] initWithUnitId:@"your_unit_id" preloadEnabled: NO];
+BAROUserProfile *userProfile = [[BAROUserProfile alloc] initWithBirthday:birthday gender:BAROUserGenderMale];
+BAROLocation *location = [[BAROLocation alloc] initWithLatitude: 37.53457 longitude: 128.23423];
 
 __weak YourClass *weakSelf = self;
 [adLoader 
   loadAdWithUserProfile:userProfile // or nil
   location:location // or nil
-  completion:^(BNAd * _Nullable ad, NSError * _Nullable error) {
+  completion:^(BAROAd * _Nullable ad, NSError * _Nullable error) {
     if (ad) {
         [weakSelf.adView renderAd:ad];
     } else {
@@ -138,17 +112,45 @@ __weak YourClass *weakSelf = self;
     }
 }];
 ```
-> Note: Use `[adView isPresentingAd]` to check BNAdView is currently presenting an ad or not
+> Note: Use `[adView isPresentingAd]` to check BAROAdView is currently presenting an ad or not
 
 #### Step 4: Handle ad events (optional)
 
 ```objc
-// BNAdViewDelegate
-- (void)adViewDidImpressed:(BNAdView *)adView {
+// BAROAdViewDelegate
+- (void)adViewDidImpressed:(BAROAdView *)adView {
   // Impressed!
 }
 
-- (void)adViewDidClicked:(BNAdView *)adView {
+- (void)adViewDidClicked:(BAROAdView *)adView {
   // Clicked
 }
 ```
+
+## Mediation
+1. Add the following lines to your Podfile to enable mediation.
+
+  - AdMob: `pod 'BARO/AdmobMediation'`
+  - MoPub: `pod 'BARO/MopubMediation'`
+  - Baidu: `pod 'BARO/BaiduMediation'`
+
+2. In your AppDelegate, pass desired mediation adapters when initializing BARO.
+
+Swift
+```swift
+import BAROAdmobMediation
+import BAROBaiduMediation
+import BAROMopubMediation
+
+BARO.configure(BAROEnvProduction, mediationAdapterClasses: [BAROAdmobMediationAdapter.self, BAROMopubMediationAdapter.self, BAROBaiduMediationAdapter.self], logging: true)
+```
+
+Objective-C
+```objc
+#import <BAROAdmobMediation/BAROAdmobMediation.h>
+#import <BAROBaiduMediation/BAROBaiduMediation.h>
+#import <BAROMopubMediation/BAROMopubMediation.h>
+
+[BARO configure:BAROEnvProduction mediationAdapterClasses:@[BAROAdmobMediationAdapter.class, BAROBaiduMediationAdapter.class, BAROMopubMediationAdapter.class] logging:YES];
+```
+
