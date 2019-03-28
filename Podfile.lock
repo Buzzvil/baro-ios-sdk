@@ -14,41 +14,71 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
-  - BARO (2.2.0):
+  - BARO (2.3.1):
     - AFNetworking (~> 3.0)
-    - BARO/Core (= 2.2.0)
+    - BARO/Core (= 2.3.1)
     - SDWebImage (~> 4.0)
-  - BARO/AdmobMediation (2.2.0):
+  - BARO/AdmobMediation (2.3.1):
     - AFNetworking (~> 3.0)
+    - Google-Mobile-Ads-SDK
     - SDWebImage (~> 4.0)
-  - BARO/BaiduMediation (2.2.0):
-    - AFNetworking (~> 3.0)
-    - SDWebImage (~> 4.0)
-  - BARO/Core (2.2.0):
+  - BARO/BaiduMediation (2.3.1):
     - AFNetworking (~> 3.0)
     - SDWebImage (~> 4.0)
-  - BARO/MopubMediation (2.2.0):
+  - BARO/Core (2.3.1):
+    - AFNetworking (~> 3.0)
+    - SDWebImage (~> 4.0)
+  - BARO/MopubMediation (2.3.1):
     - AFNetworking (~> 3.0)
     - mopub-ios-sdk (~> 5.0)
     - SDWebImage (~> 4.0)
-  - mopub-ios-sdk (5.4.1):
-    - mopub-ios-sdk/MoPubSDK (= 5.4.1)
-  - mopub-ios-sdk/Avid (5.4.1):
+  - Google-Mobile-Ads-SDK (7.42.1):
+    - GoogleAppMeasurement (~> 5.7)
+  - GoogleAppMeasurement (5.8.0):
+    - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
+    - GoogleUtilities/MethodSwizzler (~> 5.2)
+    - GoogleUtilities/Network (~> 5.2)
+    - "GoogleUtilities/NSData+zlib (~> 5.2)"
+    - nanopb (~> 0.3)
+  - GoogleUtilities/AppDelegateSwizzler (5.5.0):
+    - GoogleUtilities/Environment
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Network
+  - GoogleUtilities/Environment (5.5.0)
+  - GoogleUtilities/Logger (5.5.0):
+    - GoogleUtilities/Environment
+  - GoogleUtilities/MethodSwizzler (5.5.0):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/Network (5.5.0):
+    - GoogleUtilities/Logger
+    - "GoogleUtilities/NSData+zlib"
+    - GoogleUtilities/Reachability
+  - "GoogleUtilities/NSData+zlib (5.5.0)"
+  - GoogleUtilities/Reachability (5.5.0):
+    - GoogleUtilities/Logger
+  - mopub-ios-sdk (5.6.0):
+    - mopub-ios-sdk/MoPubSDK (= 5.6.0)
+  - mopub-ios-sdk/Avid (5.6.0):
     - mopub-ios-sdk/Core
-  - mopub-ios-sdk/Core (5.4.1)
-  - mopub-ios-sdk/Moat (5.4.1):
+  - mopub-ios-sdk/Core (5.6.0)
+  - mopub-ios-sdk/Moat (5.6.0):
     - mopub-ios-sdk/Core
-  - mopub-ios-sdk/MoPubSDK (5.4.1):
+  - mopub-ios-sdk/MoPubSDK (5.6.0):
     - mopub-ios-sdk/Avid
     - mopub-ios-sdk/Core
     - mopub-ios-sdk/Moat
-  - SDWebImage (4.4.2):
-    - SDWebImage/Core (= 4.4.2)
-  - SDWebImage/Core (4.4.2)
+  - nanopb (0.3.901):
+    - nanopb/decode (= 0.3.901)
+    - nanopb/encode (= 0.3.901)
+  - nanopb/decode (0.3.901)
+  - nanopb/encode (0.3.901)
+  - SDWebImage (4.4.6):
+    - SDWebImage/Core (= 4.4.6)
+  - SDWebImage/Core (4.4.6)
   - Toast-Swift (3.0.1)
 
 DEPENDENCIES:
-  - BARO (~> 2.2.0)
+  - BARO (~> 2.3.0)
   - BARO/AdmobMediation
   - BARO/BaiduMediation
   - BARO/MopubMediation
@@ -58,17 +88,25 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
     - BARO
+    - Google-Mobile-Ads-SDK
+    - GoogleAppMeasurement
+    - GoogleUtilities
     - mopub-ios-sdk
+    - nanopb
     - SDWebImage
     - Toast-Swift
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
-  BARO: bd330d90ca6691a59a2c9a8d626aebf4f4f69f94
-  mopub-ios-sdk: 320de49dd0a352ac58d33104a23853e749a84a78
-  SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
+  BARO: 44bebf9794ec9fd530c6f19e605af4a9ed11fd52
+  Google-Mobile-Ads-SDK: 30a1520469efa03097af62ea0d8f9be773542267
+  GoogleAppMeasurement: 1624046ab1bcc5e170061a56ef5679000b079c8e
+  GoogleUtilities: 6481e6318c5fcabaaa8513ef8120f329055d7c10
+  mopub-ios-sdk: 2b13b29ed6d1b06f7e52dd0c0a01e7adb749c1a7
+  nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
+  SDWebImage: 3f3f0c02f09798048c47a5ed0a13f17b063572d8
   Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
 
-PODFILE CHECKSUM: 50a498913931ade0f1ab6dac095a7c4808ea7c63
+PODFILE CHECKSUM: 2b51bd22c65d1823bfea265811d6191f41f43178
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.1

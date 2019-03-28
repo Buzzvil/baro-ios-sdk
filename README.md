@@ -14,7 +14,7 @@
 ## Integration
 1. Add this line to your Podfile.
 ```
-pod 'BARO', '~> 2.2.0'
+pod 'BARO', '~> 2.3.0'
 ```
 
 2. Add following properties to your `info.plist` to allow ads to be served via HTTP on iOS 9 or higher.
