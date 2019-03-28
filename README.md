@@ -50,7 +50,7 @@ BARO.configure(BAROEnvProduction, mediationAdapterClasses: [], logging: true)
 ```swift
 let adLoader = BAROAdLoader(unitId: "your_unit_id", preloadEnabled: false)
 adLoader.loadAd(
-  with: BAROUserProfile(birthday: birthday, gender: .male), // optional 
+  with: BAROUserProfile(birthday: birthday, gender: BAROUserGenderMale), // optional 
   location: BAROLocation(latitude: 37.53457, longitude: 128.23423) // optional
   ) { [weak self] (ad, error) in
     if let ad = ad {
