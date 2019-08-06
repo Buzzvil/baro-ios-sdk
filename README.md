@@ -46,6 +46,8 @@ BARO.configure(BAROEnvProduction, mediationAdapterClasses: [], logging: true)
 2. Design your BAROAdView in your Storyboard or Interface Builder. Or by code.
 3. Be sure that `titleLabel`, `descriptionLabel`, `ctaButton`, `imageView`, `iconImageView`, `adchoiceButton` components in BAROAdView are connected properly.
 
+![Image of BAROAdView] (https://github.com/Buzzvil/baro-ios-sdk/blob/master/BAROAdView_example.png)
+
 #### Step 3: Fetch and Render Ad
 
 ```swift
@@ -94,6 +96,8 @@ In AppDelegate's `application:didFinishLaunchingWithOptions`
 1. Add a BAROAdView to your view.
 2. Design your BAROAdView in your Storyboard or Interface Builder. Or by code.
 3. Be sure that `titleLabel`, `descriptionLabel`, `ctaButton`, `imageView`, `iconImageView`, `adchoiceButton` components in BAROAdView are connected properly.
+
+![Image of BAROAdView] (https://github.com/Buzzvil/baro-ios-sdk/blob/master/BAROAdView_example.png)
 
 #### Step 3: Fetch and Render Ad
 
